@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<center><h1>My First JSON-to-table-and-back</h1></center>
+<p>Select JSON file to parse</p>
+<input type = "file" id = "fileJSON" onchange="loadJSON(event)"/>
+<p> or </p>
+<button id = "createFile" onclick="createNewJSON()">Create new file</button>
+<div id = "space"></div>
+<p id = "debugP"></p>
+<script>
+function loadJSON(event){
+    var files = event.target.files;
+    var reader = new FileReader();
+    var newJSON = {};
+    reader.onload = (function (f) {
+        return function (e) {
+            newJSON = JSON.parse(e.target.result);
+            document.getElementById("debugP").innerHTML = Object.keys(newJSON);
+        }
+    })(files[0]);
+    reader.readAsText(files[0]);
+    createTable(newJSON);
+}
+function createNewJSON() {
+    
+} 
+function createTable(jsonObj) {
+    if (arguments.length === 0){
+        
+    }
+    else {
+        
+    }
+    
+}
+</script>
+</body>
+</html> 
